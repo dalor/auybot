@@ -45,7 +45,7 @@ def save_audio(song_url):
             time.sleep(1)
     else:
         files[id_] = False
-        subprocess.Popen(['../ffmpeg-3.4.2-64bit-static/ffmpeg', '-i', audio_url, '-i', thumbnail, '-c', 'copy', '-map', '0', '-map', '1', '-c:a', 'libmp3lame', filename], stderr=subprocess.DEVNULL).wait()
+        subprocess.Popen(['ffmpeg', '-i', audio_url, '-i', thumbnail, '-c', 'copy', '-map', '0', '-map', '1', '-c:a', 'libmp3lame', filename], stderr=subprocess.DEVNULL).wait()
         files[id_] = True
         return title
 
